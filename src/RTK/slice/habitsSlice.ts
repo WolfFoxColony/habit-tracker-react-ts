@@ -23,37 +23,37 @@ const initialState: HabitsStateInit = {
             week: [
                 {
                     id: 1,
-                    day: 'Monday',
+                    day: 'Mon',
                     status:  DONE
                 },
                 {
                     id: 2,
-                    day: 'Tuesday',
+                    day: 'Tue',
                     status: NOT_DONE,
                 },
                 {
                     id: 3,
-                    day: 'Wednesday',
+                    day: 'Wed',
                     status: NONE,
                 },
                 {
                     id: 4,
-                    day: 'Thursday',
+                    day: 'Thu',
                     status: DONE,
                 },
                 {
                     id: 5,
-                    day: 'Friday',
+                    day: 'Fri',
                     status: NONE,
                 },
                 {
                     id: 6,
-                    day: 'Saturday',
+                    day: 'Sat',
                     status: NOT_DONE,
                 },
                 {
                     id: 7,
-                    day: 'Sunday',
+                    day: 'Sun',
                     status: NOT_DONE,
                 },
             ],
@@ -64,37 +64,37 @@ const initialState: HabitsStateInit = {
             week: [
                 {
                     id: 1,
-                    day: 'Monday',
+                    day: 'Mon',
                     status:  NOT_DONE
                 },
                 {
                     id: 2,
-                    day: 'Tuesday',
+                    day: 'Tue',
                     status: NOT_DONE,
                 },
                 {
                     id: 3,
-                    day: 'Wednesday',
+                    day: 'Wed',
                     status: NONE,
                 },
                 {
                     id: 4,
-                    day: 'Thursday',
+                    day: 'Thu',
                     status: NOT_DONE,
                 },
                 {
                     id: 5,
-                    day: 'Friday',
+                    day: 'Fri',
                     status: NONE,
                 },
                 {
                     id: 6,
-                    day: 'Saturday',
+                    day: 'Sat',
                     status: NOT_DONE,
                 },
                 {
                     id: 7,
-                    day: 'Sunday',
+                    day: 'Sun',
                     status: NOT_DONE,
                 },
             ],

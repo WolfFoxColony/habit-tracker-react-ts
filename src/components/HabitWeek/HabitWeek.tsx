@@ -1,28 +1,37 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {Typography} from '@mui/material';
-import {Done, Cancel, HourglassEmptyOutlined} from '@mui/icons-material';
-import {DONE, NONE, NOT_DONE} from "../../redux/constants/habitStatus.tsx";
+import {HourglassEmptyOutlined} from '@mui/icons-material';
+import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
+import {DONE, NONE, NOT_DONE} from "../../RTK/constants/habitStatus.tsx";
 import {makeStyles} from '@mui/styles';
-import {updateHabitStatus} from "../../redux/slice/habitsSlice.ts";
+import {updateHabitStatus} from "../../RTK/slice/habitsSlice.ts";
+import ClearIcon from '@mui/icons-material/Clear';
 
 const useStyles = makeStyles({
     container: {
         display: 'flex',
-        justifyContent: 'space-around',
+        flexDirection: 'column',
         alignItems: 'center',
-        padding: '10px',
+        padding: '0 10px',
     },
     statusBox: {
         height: '20px',
         width: '20px',
-        margin: '20px',
+        margin: '10px',
         marginLeft: '10px',
         cursor: 'pointer',
+        display: 'flex',
+        borderRadius: "30%",
+        border: "1px solid #88b488",
+        padding: "15px",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: '#e5f3e0'
     },
 });
 
-const HabitWeek = (props: { status: 'DONE' | 'NOT_DONE' | 'NONE', day: string, title: string, id:number }) => {
+const HabitWeek = (props: { status: 'DONE' | 'NOT_DONE' | 'NONE', day: string, title: string, id: number }) => {
     const dispatch = useDispatch();
     const classes = useStyles();
     const {title, day, status, id} = props;
@@ -39,17 +48,23 @@ const HabitWeek = (props: { status: 'DONE' | 'NOT_DONE' | 'NONE', day: string, t
     };
 
     useEffect(() => {
-        dispatch(updateHabitStatus({title, day, id, currentStatus: currentStatus}));
-    },[currentStatus])
+        if (status !== currentStatus) {
+            dispatch(updateHabitStatus({title, day, id, currentStatus: currentStatus}));
+        }
+    }, [currentStatus])
+
+    const statusIcons = {
+        [DONE]: <DoneOutlineIcon/>,
+        [NOT_DONE]: <ClearIcon/>,
+        [NONE]: <HourglassEmptyOutlined/>,
+    };
 
     return (
-        <div>
+        <div className={classes.container}>
             <Typography>{day}</Typography>
 
             <div className={classes.statusBox} onClick={() => onClickStatusChange()}>
-                {currentStatus === DONE ? <Done/> : null}
-                {currentStatus === NOT_DONE ? <Cancel/> : null}
-                {currentStatus === NONE ? <HourglassEmptyOutlined/> : null}
+                {statusIcons[currentStatus]}
             </div>
         </div>
     );
