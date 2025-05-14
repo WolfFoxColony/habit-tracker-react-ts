@@ -19,14 +19,13 @@ const useStyles = makeStyles({
 const HabitList = () => {
     const classes = useStyles();
     const customFont = "'Rubik Doodle Shadow', sans-serif";
-
     const habitsList = useSelector((state: RootState) => state.habits.habits);
 
     return (
         <>
             {habitsList.map((habit: Habit) => (
                 <div key={habit.title}>
-                    <Typography
+                    <Typography className={'word-space-normal'}
                         variant="h6"
                         sx={{
                             fontFamily: customFont,
@@ -44,11 +43,13 @@ const HabitList = () => {
 
                     <Typography sx={{
                         mb: '15px',
-                        border: '1px solid #f4f6e3;',
+                        borderBottom: '1px solid #eeee1f;',
                         borderRadius: '7px',
-                        width: '40%',
+                        width: '50%',
                         padding: '5px'
-                    }}>{habit.description}</Typography>
+                    }}>
+                        {habit.description}
+                    </Typography>
 
                     <Container className={classes.container}>
                         {habit.week.map((weekDay) => (
@@ -62,7 +63,7 @@ const HabitList = () => {
                         ))}
                     </Container>
 
-                    <Divider sx={{my: 2}} />
+                    <Divider sx={{my: 2, mb: '40px'}} />
                 </div>
             ))}
         </>

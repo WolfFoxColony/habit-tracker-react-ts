@@ -117,8 +117,50 @@ const habitsSlice = createSlice({
                 updatedDayStore.status = currentStatus === DONE ? DONE : currentStatus === NOT_DONE ? NOT_DONE : NONE;
             }
         },
+        addHabits:(state:HabitsStateInit, action: PayloadAction<{title: string; description: string}>) => {
+            const {title, description} = action.payload;
+
+            state.habits.push({title, description, week: [
+                    {
+                        id: 1,
+                        day: 'Mon',
+                        status:  NOT_DONE
+                    },
+                    {
+                        id: 2,
+                        day: 'Tue',
+                        status: NOT_DONE,
+                    },
+                    {
+                        id: 3,
+                        day: 'Wed',
+                        status: NOT_DONE,
+                    },
+                    {
+                        id: 4,
+                        day: 'Thu',
+                        status: NOT_DONE,
+                    },
+                    {
+                        id: 5,
+                        day: 'Fri',
+                        status: NOT_DONE,
+                    },
+                    {
+                        id: 6,
+                        day: 'Sat',
+                        status: NOT_DONE,
+                    },
+                    {
+                        id: 7,
+                        day: 'Sun',
+                        status: NOT_DONE,
+                    },
+                ],})
+
+        }
     },
 });
 
-export const {updateHabitStatus} = habitsSlice.actions;
+export const {updateHabitStatus, addHabits} = habitsSlice.actions;
 export default habitsSlice.reducer;

@@ -1,4 +1,4 @@
-import {Drawer, List, ListItem, ListItemIcon, ListItemText} from "@mui/material";
+import {Divider, Drawer, List, ListItem, ListItemIcon, ListItemText} from "@mui/material";
 import React from "react";
 import {useNavigate} from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
@@ -36,10 +36,14 @@ const DrawerMenu = () => {
             <Drawer open={open} onClose={openMenu(false)}>
                 <List sx={{width: '12rem'}} onClick={openMenu(false)}>
                     {menuItems.map((item: { title: string, icon: any, path: string }) => (
-                        <ListItem key={item.title} onClick={() => navigate(item.path)}>
-                            <ListItemIcon>{item.icon}</ListItemIcon>
-                            <ListItemText primary={item.title}/>
-                        </ListItem>
+                        <>
+                            <ListItem key={item.title} onClick={() => navigate(item.path)} sx={{cursor: 'pointer', mb: '5px'}}>
+                                <ListItemIcon>{item.icon}</ListItemIcon>
+                                <ListItemText primary={item.title}/>
+
+                            </ListItem>
+                            <Divider/>
+                        </>
                     ))}
                 </List>
             </Drawer>
