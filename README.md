@@ -5,8 +5,9 @@
 Welcome to **HabitTracker** — a sleek and minimalistic app to help you build, track, and maintain powerful habits 🚀. Whether you're aiming to drink more water, play the guitar, read every day, or exercise regularly, this app has your back.
 
 
-## 🔧 Tech Stack
+![App preview](./public/app_preview.png)
 
+## 🔧 Tech Stack
 
 - ⚛️ **React** — Fast and component-based UI
 - 📦 **Redux Toolkit (RTK)** — Scalable and organized state management
@@ -28,6 +29,6 @@ Clone the repo and start the development server:
 
 ```bash
 git clone 
-cd habit-tracker
+cd habit-tracker-react-ts
 npm install
 npm run dev
