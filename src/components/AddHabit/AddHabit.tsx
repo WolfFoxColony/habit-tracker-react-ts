@@ -1,5 +1,7 @@
-import {KeyboardArrowRight} from '@mui/icons-material';
-import {Button, TextField, Typography} from '@mui/material';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 import React, {FormEvent, useState} from 'react';
 import AndroidIcon from "@mui/icons-material/Android";
 import Box from "@mui/material/Box";

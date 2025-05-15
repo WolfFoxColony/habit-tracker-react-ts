@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
-import {Typography} from '@mui/material';
-import {HourglassEmptyOutlined} from '@mui/icons-material';
+import Typography from '@mui/material/Typography';
+import HourglassEmptyOutlined from '@mui/icons-material/HourglassEmptyOutlined';
 import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
 import {DONE, NONE, NOT_DONE} from "../../RTK/constants/habitStatus.tsx";
 import {makeStyles} from '@mui/styles';

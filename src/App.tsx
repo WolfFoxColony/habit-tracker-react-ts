@@ -1,14 +1,14 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './assets/styles/main.scss'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import AddHabit from "./components/AddHabit/AddHabit.tsx";
+import DrawerMenu from "./components/DrawerMenu/DrawerMenu.tsx";
+import HabitList from "./components/HabitList/HabitList.tsx";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import DrawerMenu from "./components/DrawerMenu/DrawerMenu.tsx";
 import Typography from "@mui/material/Typography";
 import AdbIcon from "@mui/icons-material/Adb";
-import HabitList from "./components/HabitList/HabitList.tsx";
 
 function App() {
     const customFont = "'Rubik Doodle Shadow', sans-serif";
