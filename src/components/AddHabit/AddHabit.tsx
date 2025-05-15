@@ -13,9 +13,14 @@ const AddHabit = () => {
     const customFont = "'Rubik Doodle Shadow', sans-serif";
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [error, setError] = useState({title: false, description: false});
 
-    const handleChange = (e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const {name, value} = e.target;
+
+        if (value.trim()) {
+            setError(prev => ({...prev, [name]: false}));
+        }
 
         if (name === 'title') {
             setTitle(value);
@@ -24,9 +29,20 @@ const AddHabit = () => {
         }
     };
 
-    const formSubmit = (e:FormEvent<HTMLFormElement>) => {
+    const formSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
+        const titleIsEmpty = !title.trim();
+        const descriptionIsEmpty = !description.trim();
+
+        setError({title: titleIsEmpty, description: descriptionIsEmpty});
+
+        if (titleIsEmpty || descriptionIsEmpty) {
+            return;
+        }
+
         dispatch(addHabits({title, description}));
+        setTitle('')
+        setDescription('')
     }
 
     return (
@@ -56,8 +72,10 @@ const AddHabit = () => {
                     label="Habit Title"
                     color="success"
                     required
+                    error={error.title}
                     onChange={(e) => handleChange(e)}
                     value={title}
+                    helperText={error.title ? 'This field is required' : ''}
                 />
                 <TextField
                     value={description}
@@ -69,6 +87,8 @@ const AddHabit = () => {
                     fullWidth
                     rows={3}
                     required
+                    error={error.description}
+                    helperText={error.description ? 'This field is required' : ''}
                     onChange={(e) => handleChange(e)}
                 />
                 <Button

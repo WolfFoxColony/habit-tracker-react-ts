@@ -35,12 +35,11 @@ const DrawerMenu = () => {
 
             <Drawer open={open} onClose={openMenu(false)}>
                 <List sx={{width: '12rem'}} onClick={openMenu(false)}>
-                    {menuItems.map((item: { title: string, icon: any, path: string }) => (
+                    {menuItems.map((item: { title: string, icon: any, path: string }, id:number) => (
                         <>
-                            <ListItem key={item.title} onClick={() => navigate(item.path)} sx={{cursor: 'pointer', mb: '5px'}}>
+                            <ListItem key={`${item.title}-${id}`} onClick={() => navigate(item.path)} sx={{cursor: 'pointer', mb: '5px'}}>
                                 <ListItemIcon>{item.icon}</ListItemIcon>
                                 <ListItemText primary={item.title}/>
-
                             </ListItem>
                             <Divider/>
                         </>
