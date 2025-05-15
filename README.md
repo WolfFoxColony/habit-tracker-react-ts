@@ -8,6 +8,8 @@ Welcome to **HabitTracker** — a sleek and minimalistic app to help you build, 
 
 ![App preview](./public/app_preview.png)
 
+![App preview](./public/add_habit_preview.png)
+
 
 ## 🔧 Tech Stack
 
