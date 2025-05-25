@@ -1,21 +1,21 @@
 import React from 'react';
 import {useSelector} from "react-redux";
-import {RootState} from "../../RTK/store.tsx";
 import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-import HabitWeek from "../HabitWeek/HabitWeek.tsx";
+import HabitDay from "../HabitDay/HabitDay.tsx";
 import {Habit} from "../../RTK/slice/habitsSlice.ts";
 import AndroidIcon from '@mui/icons-material/Android';
+import {selectHabits} from "../../RTK/ selectors/ selectors.ts";
 
 const HabitList = () => {
     const customFont = "'Rubik Doodle Shadow', sans-serif";
-    const habitsList = useSelector((state: RootState) => state.habits.habits);
+    const habitsList = useSelector(selectHabits);
 
     return (
         <>
-            {habitsList.map((habit: Habit) => (
-                <div key={habit.title}>
+            {habitsList.map((habit: Habit, id:number) => (
+                <div key={`${habit.title}-${id}`}>
                     <Typography className={'word-space-normal'}
                                 variant="h6"
                                 sx={{
@@ -49,7 +49,7 @@ const HabitList = () => {
                         padding: '10px',
                     }}>
                         {habit.week.map((weekDay) => (
-                            <HabitWeek
+                            <HabitDay
                                 key={`${habit.title}-${weekDay.day}`}
                                 status={weekDay.status}
                                 day={weekDay.day}

@@ -31,7 +31,14 @@ const useStyles = makeStyles({
     },
 });
 
-const HabitWeek = (props: { status: 'DONE' | 'NOT_DONE' | 'NONE', day: string, title: string, id: number }) => {
+type HabitDayProps = {
+    status: 'DONE' | 'NOT_DONE' | 'NONE',
+    day: string,
+    title: string,
+    id: number
+}
+
+const HabitDay = React.memo((props: HabitDayProps) => {
     const dispatch = useDispatch();
     const classes = useStyles();
     const {title, day, status, id} = props;
@@ -68,6 +75,6 @@ const HabitWeek = (props: { status: 'DONE' | 'NOT_DONE' | 'NONE', day: string, t
             </div>
         </div>
     );
-};
+});
 
-export default HabitWeek;
+export default HabitDay;
