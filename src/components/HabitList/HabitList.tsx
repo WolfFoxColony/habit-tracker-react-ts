@@ -4,9 +4,9 @@ import Divider from '@mui/material/Divider';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import HabitDay from "../HabitDay/HabitDay.tsx";
-import {Habit} from "../../RTK/slice/habitsSlice.ts";
 import AndroidIcon from '@mui/icons-material/Android';
-import {selectHabits} from "../../RTK/ selectors/ selectors.ts";
+import {selectHabits} from "../../RTK/ selectors/selectors.ts";
+import {Habit} from "../../RTK/types/types.ts";
 
 const HabitList = () => {
     const customFont = "'Rubik Doodle Shadow', sans-serif";

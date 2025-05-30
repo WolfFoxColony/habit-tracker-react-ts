@@ -31,14 +31,14 @@ const useStyles = makeStyles({
     },
 });
 
-type HabitDayProps = {
+export type HabitDayType = {
     status: 'DONE' | 'NOT_DONE' | 'NONE',
     day: string,
     title: string,
     id: number
 }
 
-const HabitDay = React.memo((props: HabitDayProps) => {
+const HabitDay = React.memo((props: HabitDayType) => {
     const dispatch = useDispatch();
     const classes = useStyles();
     const {title, day, status, id} = props;
@@ -56,7 +56,7 @@ const HabitDay = React.memo((props: HabitDayProps) => {
 
     useEffect(() => {
         if (status !== currentStatus) {
-            dispatch(updateHabitStatus({title, day, id, currentStatus: currentStatus}));
+            dispatch(updateHabitStatus({title, day, id, status: currentStatus}));
         }
     }, [currentStatus])
 

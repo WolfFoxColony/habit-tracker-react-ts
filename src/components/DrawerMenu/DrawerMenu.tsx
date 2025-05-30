@@ -6,6 +6,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
 import AddCircleOutlined from "@mui/icons-material/AddCircleOutlined";
 
+type menuItemsType = {
+    title: string,
+    icon: React.ReactNode,
+    path: string
+}
+
 const DrawerMenu = () => {
     const navigate = useNavigate();
     const [open, setOpen] = React.useState(false);
@@ -14,7 +20,7 @@ const DrawerMenu = () => {
         setOpen(toggle);
     };
 
-    const menuItems: { title: string; icon: React.JSX.Element; path: string }[] = [
+    const menuItems: menuItemsType[] = [
         {
             title: 'My Habits',
             icon: <AdbIcon sx={{color: '#698B69'}}/>,
@@ -35,7 +41,7 @@ const DrawerMenu = () => {
 
             <Drawer open={open} onClose={openMenu(false)}>
                 <List sx={{width: '12rem'}} onClick={openMenu(false)}>
-                    {menuItems.map((item: { title: string, icon: any, path: string }, id:number) => (
+                    {menuItems.map((item: menuItemsType, id:number) => (
                         <>
                             <ListItem key={`${item.title}-${id}`} onClick={() => navigate(item.path)} sx={{cursor: 'pointer', mb: '5px'}}>
                                 <ListItemIcon>{item.icon}</ListItemIcon>
